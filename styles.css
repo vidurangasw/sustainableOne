@@ -1,4 +1,4 @@
-body {
+bobody {
     font-family: Arial, sans-serif;
     background-color: #f0f5f9; /* Light blue-gray */
     margin: 0;
@@ -33,7 +33,7 @@ body {
 }
 
 .chart-container {
-    width: 90%; /* Adjust as needed */
+    width: 600px;
     margin: 20px auto;
     background-color: #ffffff; /* White */
     padding: 20px;
@@ -49,26 +49,42 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%; /* Make button full width */
-    max-width: 200px; /* Limit button width */
 }
 
 button:hover {
     background-color: #135015; /* Darker green */
 }
 
-/* Media queries for responsive design */
-@media screen and (max-width: 768px) {
-    .input-container {
-        padding: 10px;
-        margin: 10px auto;
-    }
-
-    .chart-container {
-        width: 100%;
-    }
-
-    button {
-        max-width: none;
-    }
+/* Table styles */
+.table-container {
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden; /* Ensure rounded corners are applied */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 10px;
+    text-align: center;
+}
+
+.table-container thead {
+    background-color: #1d6521; /* Dark green */
+    color: #ffffff; /* White */
+}
+
+.table-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray */
+}
+
+.table-container tbody tr:hover {
+    background-color: #d9e5d6; /* Light green on hover */
+}
+
