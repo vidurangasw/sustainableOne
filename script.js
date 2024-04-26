@@ -210,3 +210,4 @@ const pieChart2 = new Chart(document.getElementById('pie-chart-2'), {
 
 // Initialize chart when the page loads
 updateChart();
+pieChart();
