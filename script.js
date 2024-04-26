@@ -59,7 +59,7 @@ function updateComparisonTable(totalFormData, regularSampleData) {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Total Form</td>
+                                    <td>Bio-Based %</td>
                                     <td>${regularSampleData[0]}</td>
                                     <td>${totalFormData[0]}</td>
                                 </tr>
