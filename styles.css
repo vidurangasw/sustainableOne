@@ -1,4 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f5f9; /* Light blue-gray */
+    margin: 0;
+    padding: 0;
+}
+
+.input-container {
+    background-color: #e8f6e0; /* Light green */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container h2 {
+    color: #1d6521; /* Dark green */
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1d6521; /* Dark green */
+}
+
+.input-container input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #1d6521; /* Dark green */
+    border-radius: 5px;
+}
+
 .chart-container {
     width: 600px;
     margin: 20px auto;
+    background-color: #ffffff; /* White */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #1d6521; /* Dark green */
+    color: #ffffff; /* White */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #135015; /* Darker green */
 }
