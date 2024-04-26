@@ -1,21 +1,134 @@
-// Get the canvas element
+let radarChart; // Global variable to hold the chart instance
 const ctx = document.getElementById('radar-chart').getContext('2d');
 
-// Initialize the radar chart with empty data
-let radarChart;
+// Function to update chart with new data for Total Form
+// Function to update chart with new data for Total Form
+function updateTotalChart() {
+    // Get input values for Total Form
+    const bioBasedTotal = parseFloat(document.getElementById('bio-based-total').value) || 0;
+    const recycleTotal = parseFloat(document.getElementById('recycle-total').value) || 0;
+    const biodegradableTotal = parseFloat(document.getElementById('biodegradable-total').value) || 0;
+    const reusabilityTotal = parseFloat(document.getElementById('reusability-total').value) || 0;
+    const recycleContentTotal = parseFloat(document.getElementById('recycle-content-total').value) || 0;
 
-// Function to update chart with new data
+    const totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
+
+    // Call updateComparisonTable function with the correct form data
+    updateComparisonTable(totalFormData, 'total-form'); // Passing 'total-form' as the identifier
+    updateChart();
+}
+
+
+// Function to update chart with new data for Regular Sample
+function updateRegularChart() {
+    // Get input values for Regular Sample
+    const bioBasedRegular = parseFloat(document.getElementById('bio-based-regular').value) || 0;
+    const recycleRegular = parseFloat(document.getElementById('recycle-regular').value) || 0;
+    const biodegradableRegular = parseFloat(document.getElementById('biodegradable-regular').value) || 0;
+    const reusabilityRegular = parseFloat(document.getElementById('reusability-regular').value) || 0;
+    const recycleContentRegular = parseFloat(document.getElementById('recycle-content-regular').value) || 0;
+
+    const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
+
+    updateComparisonTable(regularSampleData, 'regular-sample');
+    updateChart();
+}
+
+// Function to update the comparison table with new data
+// Function to update the comparison table with new data
+// Function to update the comparison table with new data
+function updateComparisonTable(totalFormData, regularSampleData) {
+    const tableContainer = document.querySelector('.table-container');
+    let tableContent = '';
+
+    // First table for Carbon foot print reduction
+    tableContent += `<div class="sub-table-container">
+                        <h2>Carbon foot print reduction</h2>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Regular Sample</th>
+                                    <th>Total Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total Form</td>
+                                    <td>${regularSampleData[0]}</td>
+                                    <td>${totalFormData[0]}</td>
+                                </tr>
+                                <tr>
+                                    <td>Recycling %</td>
+                                    <td>${regularSampleData[1]}</td>
+                                    <td>${totalFormData[1]}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Carbon foot print reduction%</td>
+                                    <td>${regularSampleData[0] + regularSampleData[1]}</td>
+                                    <td>${totalFormData[0] + totalFormData[1]}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+
+    // Second table for Waste Reduction
+    tableContent += `<div class="sub-table-container">
+                        <h2>Waste Reduction</h2>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Regular Sample</th>
+                                    <th>Total Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Biodegradable %</td>
+                                    <td>${regularSampleData[2]}</td>
+                                    <td>${totalFormData[2]}</td>
+                                </tr>
+                                <tr>
+                                    <td>Recycling %</td>
+                                    <td>${regularSampleData[3]}</td>
+                                    <td>${totalFormData[3]}</td>
+                                </tr>
+                                <tr>
+                                    <td>Reusability %</td>
+                                    <td>${regularSampleData[4]}</td>
+                                    <td>${totalFormData[4]}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total waste reduction %</td>
+                                    <td>${regularSampleData[2] + regularSampleData[3] + regularSampleData[4]}</td>
+                                    <td>${totalFormData[2] + totalFormData[3] + totalFormData[4]}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+
+    tableContainer.innerHTML = tableContent;
+}
+
 // Function to update chart with new data
 function updateChart() {
-    // Get input values and ensure they are within the range of 0% to 100%
-    const bioBased = Math.min(100, Math.max(0, parseInt(document.getElementById('bio-based').value))) || 0;
-    const recycle = Math.min(100, Math.max(0, parseInt(document.getElementById('recycle').value))) || 0;
-    const biodegradable = Math.min(100, Math.max(0, parseInt(document.getElementById('biodegradable').value))) || 0;
-    const reusability = Math.min(100, Math.max(0, parseInt(document.getElementById('reusability').value))) || 0;
-    const recycleContent = Math.min(100, Math.max(0, parseInt(document.getElementById('recycle-content').value))) || 0;
+    // Get input values for Total Form
+    const bioBasedTotal = parseFloat(document.getElementById('bio-based-total').value) ||17.95;
+    const recycleTotal = parseFloat(document.getElementById('recycle-total').value) || 28.35;
+    const biodegradableTotal = parseFloat(document.getElementById('biodegradable-total').value) || 12;
+    const reusabilityTotal = parseFloat(document.getElementById('reusability-total').value) || 33.3;
+    const recycleContentTotal = parseFloat(document.getElementById('recycle-content-total').value) || 18.9;
 
-    const totalFormData = [bioBased, recycle, biodegradable, reusability, recycleContent];
-    const regularSampleData = [50, 70, 40, 60, 65]; // Example percentages for Regular Sample
+    // Get input values for Regular Sample
+    const bioBasedRegular = parseFloat(document.getElementById('bio-based-regular').value) || 0;
+    const recycleRegular = parseFloat(document.getElementById('recycle-regular').value) || 0;
+    const biodegradableRegular = parseFloat(document.getElementById('biodegradable-regular').value) || 0;
+    const reusabilityRegular = parseFloat(document.getElementById('reusability-regular').value) || 33.3;
+    const recycleContentRegular = parseFloat(document.getElementById('recycle-content-regular').value) || 0;
+
+    const totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
+    const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
 
     if (radarChart) {
         radarChart.data.datasets[0].data = totalFormData;
@@ -23,7 +136,7 @@ function updateChart() {
         radarChart.update();
     } else {
         const data = {
-            labels: ['Bio-based Content (%)', 'Recycle Content (%)', 'Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%)'],
+            labels: ['Bio-based Content (%)', 'Recycle Content (caban fooprint reduction) (%)', 'Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
             datasets: [
                 {
                     label: 'Total Form',
@@ -55,3 +168,6 @@ function updateChart() {
         });
     }
 }
+
+// Initialize chart when the page loads
+updateChart();
