@@ -175,39 +175,7 @@ function updateChart() {
     }
 }
 
-function pieChart(){
-// Generate data for the pie charts (example data)
-const pieChartData1 = {
-    labels: ['Label 1', 'Label 2', 'Label 3'],
-    datasets: [{
-        label: 'Dataset 1',
-        data: [30, 40, 30], // Example data values
-        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'], // Example colors
-    }]
-};
 
-const pieChartData2 = {
-    labels: ['label', 'Labe, 'Label C'],
-    datasets: [{
-        label: 'Dataset 2',
-        data: [25, 35, 40], // Example data values
-        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'], // Example colors
-    }]
-};
-
-// Create pie charts
-const pieChart1 = new Chart(document.getElementById('pie-chart-1'), {
-    type: 'pie',
-    data: pieChartData1,
-});
-
-const pieChart2 = new Chart(document.getElementById('pie-chart-2'), {
-    type: 'pie',
-    data: pieChartData2,
-});
-
-}
 
 // Initialize chart when the page loads
 updateChart();
-pieChart();
