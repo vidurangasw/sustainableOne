@@ -3,6 +3,9 @@ const ctx = document.getElementById('radar-chart').getContext('2d');
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
+let totalFormData =[17.95,28.35,12,33.3,18.9];
+let regularSampleData =[0,0,0,33.3,0];
+
 function updateTotalChart() {
     // Get input values for Total Form
     const bioBasedTotal = parseFloat(document.getElementById('bio-based-total').value) || 0;
@@ -11,10 +14,11 @@ function updateTotalChart() {
     const reusabilityTotal = parseFloat(document.getElementById('reusability-total').value) || 0;
     const recycleContentTotal = parseFloat(document.getElementById('recycle-content-total').value) || 0;
 
-    const totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
+    totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
 
     // Call updateComparisonTable function with the correct form data
-    updateComparisonTable(totalFormData, 'total-form'); // Passing 'total-form' as the identifier
+    updateComparisonTable(totalFormData,regularSampleData); // Passing 'total-form' as the identifier
+    console.log(totalFormData);
     updateChart();
 }
 
@@ -30,7 +34,8 @@ function updateRegularChart() {
 
     const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
 
-    updateComparisonTable(regularSampleData, 'regular-sample');
+    updateComparisonTable(totalFormData, regularSampleData);
+    console.log(regularSampleData);
     updateChart();
 }
 
@@ -65,8 +70,8 @@ function updateComparisonTable(totalFormData, regularSampleData) {
                                 </tr>
                                 <tr>
                                     <td>Total Carbon foot print reduction%</td>
-                                    <td>${regularSampleData[0] + regularSampleData[1]}</td>
-                                    <td>${totalFormData[0] + totalFormData[1]}</td>
+                                    <td>${(regularSampleData[0] + regularSampleData[1]).toFixed(2)}</td>
+                                    <td>${(totalFormData[0] + totalFormData[1]).toFixed(2)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -101,8 +106,8 @@ function updateComparisonTable(totalFormData, regularSampleData) {
                                 </tr>
                                 <tr>
                                     <td>Total waste reduction %</td>
-                                    <td>${regularSampleData[2] + regularSampleData[3] + regularSampleData[4]}</td>
-                                    <td>${totalFormData[2] + totalFormData[3] + totalFormData[4]}</td>
+                                    <td>${(regularSampleData[2] + regularSampleData[3] + regularSampleData[4]).toFixed(2)}</td>
+                                    <td>${(totalFormData[2] + totalFormData[3] + totalFormData[4]).toFixed(2)}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -110,6 +115,7 @@ function updateComparisonTable(totalFormData, regularSampleData) {
 
     tableContainer.innerHTML = tableContent;
 }
+
 
 // Function to update chart with new data
 function updateChart() {
