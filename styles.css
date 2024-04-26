@@ -33,7 +33,7 @@ body {
 }
 
 .chart-container {
-    width: 600px;
+    width: 90%; /* Adjust as needed */
     margin: 20px auto;
     background-color: #ffffff; /* White */
     padding: 20px;
@@ -49,8 +49,26 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%; /* Make button full width */
+    max-width: 200px; /* Limit button width */
 }
 
 button:hover {
     background-color: #135015; /* Darker green */
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .input-container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+
+    button {
+        max-width: none;
+    }
 }
