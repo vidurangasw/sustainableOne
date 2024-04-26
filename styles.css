@@ -9,7 +9,7 @@ bobody {
     background-color: #e8f6e0; /* Light green */
     padding: 20px;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 800px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -33,7 +33,7 @@ bobody {
 }
 
 .chart-container {
-    width: 600px;
+    width: 800px;
     margin: 20px auto;
     background-color: #ffffff; /* White */
     padding: 20px;
