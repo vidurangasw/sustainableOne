@@ -65,5 +65,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+            // Call the functions when the window is loaded
+            updateChart(); // This will initialize the chart
+            let totalFormData =[17.95,28.35,12.00,33.33,18.90];
+            let regularSampleData =[0.00,0.00,0.00,33.33,0.00];
+            updateComparisonTable(totalFormData, regularSampleData)
+            
+        };
+    </script>
 </body>
 </html>
