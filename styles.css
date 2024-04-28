@@ -1,8 +1,17 @@
-bobody {
+body {
     font-family: Arial, sans-serif;
     background-color: #f0f5f9; /* Light blue-gray */
     margin: 0;
     padding: 0;
+}
+
+.hero-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 32px;
+
 }
 
 h1 {
@@ -97,3 +106,11 @@ button:hover {
     background-color: #d9e5d6; /* Light green on hover */
 }
 
+.chart-row {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly along the row */
+}
+
+.bar-chart-container {
+    width: 45%; /* Adjust the width as needed */
+}
