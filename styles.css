@@ -131,6 +131,7 @@ button:hover {
       width: 100%;
     }
 
+    
     .chart-container,
     .input-container,
     .table-container {
@@ -150,6 +151,8 @@ button:hover {
     .chart-row {
       justify-content: space-between;
     }
+  
+    
   
     .chart-container,
     .input-container,
