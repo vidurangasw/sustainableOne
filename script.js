@@ -211,7 +211,7 @@ function updateChart() {
 
 
         const data2 = {
-            labels: ['Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
+            labels: ['Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%)'],
             datasets: [
                 {
                     label: 'Total Form',
