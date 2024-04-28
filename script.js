@@ -1,5 +1,13 @@
 let radarChart; // Global variable to hold the chart instance
+let radarChart1;
+let radarChart2;
+let barChart;
+
+const ctxBar = document.getElementById('bar-chart').getContext('2d');
+
 const ctx = document.getElementById('radar-chart').getContext('2d');
+
+const ctx2 = document.getElementById('radar-chart-2').getContext('2d');
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
@@ -135,14 +143,26 @@ function updateChart() {
 
     const totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
     const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
+    const chart1Data1 = [bioBasedTotal+recycleTotal,bioBasedRegular+recycleRegular];
+    const chart1Data2 = [bioBasedRegular+recycleRegular];
+    const chart2Data1 = [biodegradableTotal,reusabilityTotal,recycleContentTotal];
+    const chart2Data2 = [biodegradableRegular,reusabilityRegular,recycleContentRegular];
+    console.log(chart1Data1,chart1Data2,chart2Data1,chart2Data2);
 
     if (radarChart) {
         radarChart.data.datasets[0].data = totalFormData;
         radarChart.data.datasets[1].data = regularSampleData;
+        radarChart2.data.datasets[0].data = chart2Data1;
+        radarChart2.data.datasets[1].data = chart2Data2;
         radarChart.update();
+        radarChart2.update();
+        barChart.data.datasets[0].data = chart1Data1;
+       
+        barChart.update();
+
     } else {
         const data = {
-            labels: ['Bio-based Content (%)', 'Recycle Content (caban fooprint reduction) (%)', 'Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
+            labels: ['Bio-based Content (%)', 'Recycle Content (carban fooprint reduction) (%)', 'Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
             datasets: [
                 {
                     label: 'Total Form',
@@ -159,6 +179,56 @@ function updateChart() {
             ]
         };
 
+        const dataBar = {
+            labels: ["Total Form", "Regular Sample"],
+            datasets: [
+                {
+                    label: 'Total Carbon foot print reduction',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: chart1Data1
+                },
+                
+            ]
+        };
+
+        const optionsBar = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: dataBar,
+            options: optionsBar
+        });
+
+
+        const data2 = {
+            labels: ['Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
+            datasets: [
+                {
+                    label: 'Total Form',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: totalFormData,
+                },
+                {
+                    label: 'Regular Sample',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    data: regularSampleData,
+                }
+            ]
+        };
+
+
         const options = {
             scale: {
                 ticks: { beginAtZero: true },
@@ -172,10 +242,17 @@ function updateChart() {
             data: data,
             options: options
         });
+
+       
+        radarChart2 = new Chart(ctx2, {
+            type: 'radar',
+            data: data2,
+            options: options
+        });
+
+
     }
 }
-
-
 
 // Initialize chart when the page loads
 updateChart();
