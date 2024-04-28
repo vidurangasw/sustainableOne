@@ -7,11 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>SW - Total Form Eco Impact Comparator: Visualizing Sustainability Gains</h1>
+    <div class="hero-container">
+    <img src="SW_logo_Green.jpg" alt="Company Logo" width="100px" height="100px">
+    <h1>Total Form Eco Impact Comparator: Visualizing Sustainability Gains</h1>
+    </div>
     <div class="chart-container">
         <canvas id="radar-chart"></canvas>
     </div>
+
+    <hr style="border-top: 1px solid rgb(96, 219, 135);">
+
+    <div class="chart-row">
+        <div class="bar-chart-container">
+            <h2>Carbon foot print reduction</h2>
+            <h2 style="color: white;">.</h2>
+            <h2 style="color: white;"> .</h2>
+            <canvas id="bar-chart"></canvas>
+        </div>
+        
+
+
+        <div class="bar-chart-container">
+            <h2>Waste Reduction</h2>
+            <canvas id="radar-chart-2"></canvas>
+        </div>
+    </div>
     
+    <hr style="border-top: 1px solid rgb(96, 219, 135);">
+
     <div class="table-container">
         <h2>Comparison Table</h2>
         <table border="1">
@@ -27,6 +50,8 @@
             </tbody>
         </table>
     </div>
+
+    <hr style="border-top: 1px solid rgb(96, 219, 135);">
     
     <div class="input-container">
         <h2>Total Form</h2>
