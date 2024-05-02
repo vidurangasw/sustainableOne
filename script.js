@@ -5,14 +5,14 @@ let barChart;
 
 const ctxBar = document.getElementById('bar-chart').getContext('2d');
 
-const ctx = document.getElementById('radar-chart').getContext('2d');
+// const ctx = document.getElementById('radar-chart').getContext('2d');
 
-const ctx2 = document.getElementById('radar-chart-2').getContext('2d');
+// const ctx2 = document.getElementById('radar-chart-2').getContext('2d');
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
-let totalFormData =[17.95,28.35,12,33.3,18.9];
-let regularSampleData =[0,0,0,33.3,0];
+let totalFormData =[64.10,0,63.90,50.00,43.30];
+            let regularSampleData =[100.00,100.00,100.00,50.00,100.00];
 
 function updateTotalChart() {
     // Get input values for Total Form
@@ -42,7 +42,7 @@ function updateRegularChart() {
 
     const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
 
-    updateComparisonTable(totalFormData, regularSampleData);
+    //updateComparisonTable(totalFormData, regularSampleData);
     console.log(regularSampleData);
     updateChart();
 }
@@ -128,41 +128,41 @@ function updateComparisonTable(totalFormData, regularSampleData) {
 // Function to update chart with new data
 function updateChart() {
     // Get input values for Total Form
-    const bioBasedTotal = parseFloat(document.getElementById('bio-based-total').value) ||17.95;
-    const recycleTotal = parseFloat(document.getElementById('recycle-total').value) || 28.35;
-    const biodegradableTotal = parseFloat(document.getElementById('biodegradable-total').value) || 12;
-    const reusabilityTotal = parseFloat(document.getElementById('reusability-total').value) || 33.3;
-    const recycleContentTotal = parseFloat(document.getElementById('recycle-content-total').value) || 18.9;
+    const bioBasedTotal = parseFloat(document.getElementById('bio-based-total').value) ||64.10;
+    const recycleTotal = parseFloat(document.getElementById('recycle-total').value) || 0.00;
+    const biodegradableTotal = parseFloat(document.getElementById('biodegradable-total').value) || 63.90;
+    const reusabilityTotal = parseFloat(document.getElementById('reusability-total').value) || 50.00;
+    const recycleContentTotal = parseFloat(document.getElementById('recycle-content-total').value) || 43.30;
 
     // Get input values for Regular Sample
-    const bioBasedRegular = parseFloat(document.getElementById('bio-based-regular').value) || 0;
-    const recycleRegular = parseFloat(document.getElementById('recycle-regular').value) || 0;
-    const biodegradableRegular = parseFloat(document.getElementById('biodegradable-regular').value) || 0;
-    const reusabilityRegular = parseFloat(document.getElementById('reusability-regular').value) || 33.3;
-    const recycleContentRegular = parseFloat(document.getElementById('recycle-content-regular').value) || 0;
+    const bioBasedRegular = parseFloat(document.getElementById('bio-based-regular').value) || 100;
+    const recycleRegular = parseFloat(document.getElementById('recycle-regular').value) || 100;
+    const biodegradableRegular = parseFloat(document.getElementById('biodegradable-regular').value) || 100;
+    const reusabilityRegular = parseFloat(document.getElementById('reusability-regular').value) || 50.00;
+    const recycleContentRegular = parseFloat(document.getElementById('recycle-content-regular').value) || 100.00;
 
     const totalFormData = [bioBasedTotal, recycleTotal, biodegradableTotal, reusabilityTotal, recycleContentTotal];
     const regularSampleData = [bioBasedRegular, recycleRegular, biodegradableRegular, reusabilityRegular, recycleContentRegular];
-    const chart1Data1 = [bioBasedTotal+recycleTotal,bioBasedRegular+recycleRegular];
-    const chart1Data2 = [bioBasedRegular+recycleRegular];
-    const chart2Data1 = [biodegradableTotal,reusabilityTotal,recycleContentTotal];
-    const chart2Data2 = [biodegradableRegular,reusabilityRegular,recycleContentRegular];
-    console.log(chart1Data1,chart1Data2,chart2Data1,chart2Data2);
+    // const chart1Data1 = [bioBasedTotal+recycleTotal,bioBasedRegular+recycleRegular];
+    // const chart1Data2 = [bioBasedRegular+recycleRegular];
+    // const chart2Data1 = [biodegradableTotal,reusabilityTotal,recycleContentTotal];
+    // const chart2Data2 = [biodegradableRegular,reusabilityRegular,recycleContentRegular];
+    // console.log(chart1Data1,chart1Data2,chart2Data1,chart2Data2);
 
     if (radarChart) {
         radarChart.data.datasets[0].data = totalFormData;
         radarChart.data.datasets[1].data = regularSampleData;
-        radarChart2.data.datasets[0].data = chart2Data1;
-        radarChart2.data.datasets[1].data = chart2Data2;
+        // radarChart2.data.datasets[0].data = chart2Data1;
+        // radarChart2.data.datasets[1].data = chart2Data2;
         radarChart.update();
-        radarChart2.update();
-        barChart.data.datasets[0].data = chart1Data1;
+        //radarChart2.update();
+        //barChart.data.datasets[0].data = chart1Data1;
        
-        barChart.update();
+        //barChart.update();
 
     } else {
         const data = {
-            labels: ['Bio-based Content (%)', 'Recycle Content (carban fooprint reduction) (%)', 'Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%) (Waste Reduction)'],
+            labels: ['Non-bio-based Content (%)', 'Non-recycled Content (%)', 'Non-biodegradable (%)', 'Non-reusability (%)', 'Non-recyclable Content (%)'],
             datasets: [
                 {
                     label: 'Total Form',
@@ -179,54 +179,54 @@ function updateChart() {
             ]
         };
 
-        const dataBar = {
-            labels: ["Total Form", "Regular Sample"],
-            datasets: [
-                {
-                    label: 'Total Carbon foot print reduction',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    data: chart1Data1
-                },
+        // const dataBar = {
+        //     labels: ["Total Form", "Regular Sample"],
+        //     datasets: [
+        //         {
+        //             label: 'Total Carbon foot print reduction',
+        //             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        //             borderColor: 'rgba(75, 192, 192, 1)',
+        //             borderWidth: 1,
+        //             data: chart1Data1
+        //         },
                 
-            ]
-        };
+        //     ]
+        // };
 
-        const optionsBar = {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        };
+        // const optionsBar = {
+        //     scales: {
+        //         yAxes: [{
+        //             ticks: {
+        //                 beginAtZero: true
+        //             }
+        //         }]
+        //     }
+        // };
 
-        barChart = new Chart(ctxBar, {
-            type: 'bar',
-            data: dataBar,
-            options: optionsBar
-        });
+        // barChart = new Chart(ctxBar, {
+        //     type: 'bar',
+        //     data: dataBar,
+        //     options: optionsBar
+        // });
 
 
-        const data2 = {
-            labels: ['Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%)'],
-            datasets: [
-                {
-                    label: 'Total Form',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    data: totalFormData,
-                },
-                {
-                    label: 'Regular Sample',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    data: regularSampleData,
-                }
-            ]
-        };
+        // const data2 = {
+        //     labels: ['Biodegradable (%)', 'Reusability (%)', 'Recycle Content (%)'],
+        //     datasets: [
+        //         {
+        //             label: 'Total Form',
+        //             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        //             borderColor: 'rgba(75, 192, 192, 1)',
+        //             data: totalFormData,
+        //         },
+        //         {
+        //             label: 'Regular Sample',
+        //             backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        //             borderColor: 'rgba(255, 99, 132, 1)',
+        //             data: regularSampleData,
+        //         }
+        //     ]
+        // };
 
 
         const options = {
@@ -244,11 +244,11 @@ function updateChart() {
         });
 
        
-        radarChart2 = new Chart(ctx2, {
-            type: 'radar',
-            data: data2,
-            options: options
-        });
+        // radarChart2 = new Chart(ctx2, {
+        //     type: 'radar',
+        //     data: data2,
+        //     options: options
+        // });
 
 
     }
