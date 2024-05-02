@@ -14,48 +14,77 @@ const ctx = document.getElementById("radar-chart").getContext("2d");
 let totalFormData = [64.1, 0, 63.9, 50.0, 43.3];
 let regularSampleData = [100.0, 100.0, 100.0, 50.0, 100.0];
 
+const getInputValueOrDefault = (elementId, defaultVal) => {
+  const inputValue = parseFloat(document.getElementById(elementId).value);
+  return !isNaN(inputValue) ? inputValue : defaultVal;
+};
+
 function updateTotalChart() {
   // Get input values for Total Form
-  const bioBasedTotal =
-    parseFloat(document.getElementById("bio-based-total").value) || 0;
-  const recycleTotal =
-    parseFloat(document.getElementById("recycle-total").value) || 0;
-  const biodegradableTotal =
-    parseFloat(document.getElementById("biodegradable-total").value) || 0;
-  const reusabilityTotal =
-    parseFloat(document.getElementById("reusability-total").value) || 0;
-  const recycleContentTotal =
-    parseFloat(document.getElementById("recycle-content-total").value) || 0;
+  if (document.getElementById("bio-based-total").value) {
+    const inputValue = parseFloat(
+      document.getElementById("bio-based-total").value
+    );
+    const bioBasedTotal = !isNaN(inputValue) ? inputValue : totalFormData[0];
 
-  totalFormData = [
-    bioBasedTotal,
-    recycleTotal,
-    biodegradableTotal,
-    reusabilityTotal,
-    recycleContentTotal,
-  ];
+    const recycleTotal = getInputValueOrDefault(
+      "recycle-total",
+      totalFormData[1]
+    );
+    const biodegradableTotal = getInputValueOrDefault(
+      "biodegradable-total",
+      totalFormData[2]
+    );
+    const reusabilityTotal = getInputValueOrDefault(
+      "reusability-total",
+      totalFormData[3]
+    );
+    const recycleContentTotal = getInputValueOrDefault(
+      "recycle-content-total",
+      totalFormData[4]
+    );
 
+    totalFormData = [
+      bioBasedTotal,
+      recycleTotal,
+      biodegradableTotal,
+      reusabilityTotal,
+      recycleContentTotal,
+    ];
+  } else {
+    totalFormData = [64.1, 0, 63.9, 50.0, 43.3];
+  }
   // Call updateComparisonTable function with the correct form data
   //updateComparisonTable(totalFormData,regularSampleData); // Passing 'total-form' as the identifier
   console.log(totalFormData);
-  updateChart();
+  updateChart(totalFormData, regularSampleData);
 }
 
 // Function to update chart with new data for Regular Sample
 function updateRegularChart() {
   // Get input values for Regular Sample
-  const bioBasedRegular =
-    parseFloat(document.getElementById("bio-based-regular").value) || 0;
-  const recycleRegular =
-    parseFloat(document.getElementById("recycle-regular").value) || 0;
-  const biodegradableRegular =
-    parseFloat(document.getElementById("biodegradable-regular").value) || 0;
-  const reusabilityRegular =
-    parseFloat(document.getElementById("reusability-regular").value) || 0;
-  const recycleContentRegular =
-    parseFloat(document.getElementById("recycle-content-regular").value) || 0;
+  const bioBasedRegular = getInputValueOrDefault(
+    "bio-based-regular",
+    regularSampleData[0]
+  );
+  const recycleRegular = getInputValueOrDefault(
+    "recycle-regular",
+    regularSampleData[1]
+  );
+  const biodegradableRegular = getInputValueOrDefault(
+    "biodegradable-regular",
+    regularSampleData[2]
+  );
+  const reusabilityRegular = getInputValueOrDefault(
+    "reusability-regular",
+    regularSampleData[3]
+  );
+  const recycleContentRegular = getInputValueOrDefault(
+    "recycle-content-regular",
+    regularSampleData[4]
+  );
 
-  const regularSampleData = [
+  regularSampleData = [
     bioBasedRegular,
     recycleRegular,
     biodegradableRegular,
@@ -65,7 +94,7 @@ function updateRegularChart() {
 
   //updateComparisonTable(totalFormData, regularSampleData);
   console.log(regularSampleData);
-  updateChart();
+  updateChart(totalFormData, regularSampleData);
 }
 
 // Function to update the comparison table with new data
@@ -159,45 +188,45 @@ function updateComparisonTable(totalFormData, regularSampleData) {
 }
 
 // Function to update chart with new data
-function updateChart() {
+function updateChart(totalForm, regularSample) {
   // Get input values for Total Form
-  const bioBasedTotal =
-    parseFloat(document.getElementById("bio-based-total").value) || 64.1;
-  const recycleTotal =
-    parseFloat(document.getElementById("recycle-total").value) || 0.0;
-  const biodegradableTotal =
-    parseFloat(document.getElementById("biodegradable-total").value) || 63.9;
-  const reusabilityTotal =
-    parseFloat(document.getElementById("reusability-total").value) || 50.0;
-  const recycleContentTotal =
-    parseFloat(document.getElementById("recycle-content-total").value) || 43.3;
+  //   const bioBasedTotal =
+  //     parseFloat(document.getElementById("bio-based-total").value) || 64.1;
+  //   const recycleTotal =
+  //     parseFloat(document.getElementById("recycle-total").value) || 0.0;
+  //   const biodegradableTotal =
+  //     parseFloat(document.getElementById("biodegradable-total").value) || 63.9;
+  //   const reusabilityTotal =
+  //     parseFloat(document.getElementById("reusability-total").value) || 50.0;
+  //   const recycleContentTotal =
+  //     parseFloat(document.getElementById("recycle-content-total").value) || 43.3;
 
-  // Get input values for Regular Sample
-  const bioBasedRegular =
-    parseFloat(document.getElementById("bio-based-regular").value) || 100;
-  const recycleRegular =
-    parseFloat(document.getElementById("recycle-regular").value) || 100;
-  const biodegradableRegular =
-    parseFloat(document.getElementById("biodegradable-regular").value) || 100;
-  const reusabilityRegular =
-    parseFloat(document.getElementById("reusability-regular").value) || 50.0;
-  const recycleContentRegular =
-    parseFloat(document.getElementById("recycle-content-regular").value) ||
-    100.0;
+  //   // Get input values for Regular Sample
+  //   const bioBasedRegular =
+  //     parseFloat(document.getElementById("bio-based-regular").value) || 100;
+  //   const recycleRegular =
+  //     parseFloat(document.getElementById("recycle-regular").value) || 100;
+  //   const biodegradableRegular =
+  //     parseFloat(document.getElementById("biodegradable-regular").value) || 100;
+  //   const reusabilityRegular =
+  //     parseFloat(document.getElementById("reusability-regular").value) || 50.0;
+  //   const recycleContentRegular =
+  //     parseFloat(document.getElementById("recycle-content-regular").value) ||
+  //     100.0;
 
   const totalFormData = [
-    bioBasedTotal,
-    recycleTotal,
-    biodegradableTotal,
-    reusabilityTotal,
-    recycleContentTotal,
+    totalForm[0],
+    totalForm[1],
+    totalForm[2],
+    totalForm[3],
+    totalForm[4],
   ];
   const regularSampleData = [
-    bioBasedRegular,
-    recycleRegular,
-    biodegradableRegular,
-    reusabilityRegular,
-    recycleContentRegular,
+    regularSample[0],
+    regularSample[1],
+    regularSample[2],
+    regularSample[3],
+    regularSample[4],
   ];
   // const chart1Data1 = [bioBasedTotal+recycleTotal,bioBasedRegular+recycleRegular];
   // const chart1Data2 = [bioBasedRegular+recycleRegular];
