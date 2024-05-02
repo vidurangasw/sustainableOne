@@ -1,11 +1,11 @@
 let radarChart; // Global variable to hold the chart instance
-let radarChart1;
-let radarChart2;
-let barChart;
+//let radarChart1;
+//let radarChart2;
+//let barChart;
 
-const ctxBar = document.getElementById('bar-chart').getContext('2d');
+//const ctxBar = document.getElementById('bar-chart').getContext('2d');
 
-// const ctx = document.getElementById('radar-chart').getContext('2d');
+const ctx = document.getElementById('radar-chart').getContext('2d');
 
 // const ctx2 = document.getElementById('radar-chart-2').getContext('2d');
 
