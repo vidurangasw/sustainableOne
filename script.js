@@ -247,11 +247,11 @@ function updateChart(totalForm, regularSample) {
   } else {
     const data = {
       labels: [
-        "Non-bio-based Content (%)",
-        "Non-recycled Content (%)",
-        "Non-biodegradable (%)",
-        "Non-reusability (%)",
-        "Non-recyclable Content (%)",
+        "Fossil-based content (Input materials)",
+        "Non Recycled Content-(Input material)",
+        "Non-biodegradable (%) (Product end-of-life)",
+        "Reusability (%) (Product end-of-life)",
+        "Non- recyclable (%) (Product end-of-life)",
       ],
       datasets: [
         {
