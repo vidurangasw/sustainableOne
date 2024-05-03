@@ -21,7 +21,7 @@ const getInputValueOrDefault = (elementId, defaultVal) => {
 
 function updateTotalChart() {
   // Get input values for Total Form
-  if (document.getElementById("bio-based-total").value) {
+  
     const inputValue = parseFloat(
       document.getElementById("bio-based-total").value
     );
@@ -51,9 +51,9 @@ function updateTotalChart() {
       reusabilityTotal,
       recycleContentTotal,
     ];
-  } else {
-    totalFormData = [64.1, 0, 63.9, 50.0, 43.3];
-  }
+  
+    
+  
   // Call updateComparisonTable function with the correct form data
   //updateComparisonTable(totalFormData,regularSampleData); // Passing 'total-form' as the identifier
   console.log(totalFormData);
