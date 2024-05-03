@@ -11,8 +11,8 @@ const ctx = document.getElementById("radar-chart").getContext("2d");
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
-let totalFormData = [64.1, 0, 63.9, 50.0, 43.3];
-let regularSampleData = [100.0, 100.0, 100.0, 50.0, 100.0];
+let totalFormData = [64.1, 0, 75, 50.0, 43.3];
+let regularSampleData = [100.0, 100.0, 75, 50.0, 100.0];
 
 const getInputValueOrDefault = (elementId, defaultVal) => {
   const inputValue = parseFloat(document.getElementById(elementId).value);

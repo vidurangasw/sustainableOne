@@ -21,19 +21,22 @@
 
     <div class="chart-row">
       <div class="input-container">
-        <h2>Total Form</h2>
+        <h2>TotalForm</h2>
         <h3>Sustainable Material Consumption</h3>
-        <label for="bio-based-total">Non-bio-based Content (%)</label>
+        <label for="bio-based-total"> Fossil-based content (Input materials)</label>
         <input type="number" id="bio-based-total" min="0" max="100" />
-        <label for="recycle-total">Non-recycled Content (%)</label>
+        <label for="recycle-total">Non Recycled Content-(Input material)</label>
         <input type="number" id="recycle-total" min="0" max="100" />
 
-        <h3>Landfills Waste Genaration</h3>
-        <label for="biodegradable-total">Non-biodegradable (%)</label>
-        <input type="number" id="biodegradable-total" min="0" max="100" />
-        <label for="reusability-total">Non-reusability (%)</label>
+        <h3>Solid Waste Management Impact</h3>
+        <h4>positive impact</h4>
+        <label for="reusability-total">Reusability (%) (Product end-of-life)</label>
         <input type="number" id="reusability-total" min="0" max="100" />
-        <label for="recycle-content-total">Non-recyclable Content (%)</label>
+        <h4>Negative impact</h4>
+        <label for="biodegradable-total">Non-biodegradable (%) (Product end-of-life)</label>
+        <input type="number" id="biodegradable-total" min="0" max="100" />
+        
+        <label for="recycle-content-total"> Non- recyclable (%) (Product end-of-life)</label>
         <input type="number" id="recycle-content-total" min="0" max="100" />
         <button onclick="updateTotalChart()">Update Total Form Chart</button>
       </div>
@@ -43,19 +46,22 @@
       </div>
 
       <div class="input-container">
-        <h2>Regular Sample</h2>
+        <h4>Regular Sample</h4>
         <h3>Sustainable Material Consumption</h3>
-        <label for="bio-based-regular">Non-bio-based Content (%)</label>
+        <label for="bio-based-regular"> Fossil-based content (Input materials)</label>
         <input type="number" id="bio-based-regular" min="0" max="100" />
-        <label for="recycle-regular">Non-recycled Content (%)</label>
+        <label for="recycle-regular">Non Recycled Content-(Input material)</label>
         <input type="number" id="recycle-regular" min="0" max="100" />
 
-        <h3>Landfills Waste Genaration</h3>
-        <label for="biodegradable-regular">Non-biodegradable (%)</label>
-        <input type="number" id="biodegradable-regular" min="0" max="100" />
-        <label for="reusability-regular">Non-reusability (%)</label>
+        <h3>Solid Waste Management Impact</h3>
+        <h4>positive impact</h4>
+        <label for="reusability-regular">Reusability (%) (Product end-of-life)</label>
         <input type="number" id="reusability-regular" min="0" max="100" />
-        <label for="recycle-content-regular">Non-recyclable Content (%)</label>
+        <h4>Negative impact</h4>
+        <label for="biodegradable-regular">Non-biodegradable (%) (Product end-of-life)</label>
+        <input type="number" id="biodegradable-regular" min="0" max="100" />
+       
+        <label for="recycle-content-regular"> Non- recyclable (%) (Product end-of-life)</label>
         <input type="number" id="recycle-content-regular" min="0" max="100" />
         <button onclick="updateRegularChart()">
           Update Regular Sample Chart
@@ -107,8 +113,8 @@
       window.onload = function () {
         // Call the functions when the window is loaded
         // This will initialize the chart
-        let totalFormData = [64.1, 0, 63.9, 50.0, 43.3];
-        let regularSampleData = [100.0, 100.0, 100.0, 50.0, 100.0];
+        let totalFormData = [64.1, 0, 75, 50.0, 43.3];
+        let regularSampleData = [100.0, 100.0, 75, 50.0, 100.0];
         updateChart(totalFormData, regularSampleData);
         //updateComparisonTable(totalFormData, regularSampleData)
       };
