@@ -11,8 +11,8 @@ const ctx = document.getElementById("radar-chart").getContext("2d");
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
-let totalFormData = [64.1, 0, 75, 50.0, 43.3];
-let regularSampleData = [100.0, 100.0, 75, 50.0, 100.0];
+let totalFormData = [64.1, 0, 63.9, 25.0, 43.3];
+let regularSampleData = [100.0, 100.0, 100, 25.0, 100.0];
 
 const getInputValueOrDefault = (elementId, defaultVal) => {
   const inputValue = parseFloat(document.getElementById(elementId).value);
@@ -22,11 +22,12 @@ const getInputValueOrDefault = (elementId, defaultVal) => {
 function updateTotalChart() {
   // Get input values for Total Form
   
-    const inputValue = parseFloat(
-      document.getElementById("bio-based-total").value
+    
+    const bioBasedTotal = getInputValueOrDefault(
+        "bio-based-total",
+        totalFormData[0]
     );
-    const bioBasedTotal = !isNaN(inputValue) ? inputValue : totalFormData[0];
-
+    
     const recycleTotal = getInputValueOrDefault(
       "recycle-total",
       totalFormData[1]
@@ -48,10 +49,9 @@ function updateTotalChart() {
       bioBasedTotal,
       recycleTotal,
       biodegradableTotal,
-      reusabilityTotal,
+      100 - (reusabilityTotal * 12.5),
       recycleContentTotal,
     ];
-  
     
   
   // Call updateComparisonTable function with the correct form data
@@ -88,7 +88,7 @@ function updateRegularChart() {
     bioBasedRegular,
     recycleRegular,
     biodegradableRegular,
-    reusabilityRegular,
+    100 - (reusabilityRegular * 12.5) ,
     recycleContentRegular,
   ];
 
@@ -250,12 +250,12 @@ function updateChart(totalForm, regularSample) {
         "Fossil-based content (Input materials)",
         "Non Recycled Content-(Input material)",
         "Non-biodegradable (%) (Product end-of-life)",
-        "Reusability (%) (Product end-of-life)",
+        "Non-reusability (%) (Product end-of-life)",
         "Non- recyclable (%) (Product end-of-life)",
       ],
       datasets: [
         {
-          label: "Total Form",
+          label: "TotalForm",
           backgroundColor: "rgba(75, 192, 192, 0.2)",
           borderColor: "rgba(75, 192, 192, 1)",
           data: totalFormData,
