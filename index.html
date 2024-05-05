@@ -15,7 +15,7 @@
         height="100px"
       />
       <h1>
-        Total Form Eco Impact Comparator: Visualizing Environmental Impact
+        TotalForm Eco Impact Comparator: Visualizing Environmental Impact
       </h1>
     </div>
 
@@ -28,11 +28,22 @@
         <label for="recycle-total">Non Recycled Content (%)</label>
         <input type="number" id="recycle-total" min="0" max="100" />
 
-        <h3>Solid Waste Management Impact</h3>
-        <h4>positive impact</h4>
-        <label for="reusability-total">Reusability (%)</label>
-        <input type="number" id="reusability-total" min="0" max="100" />
-        <h4>Negative impact</h4>
+        <h3>Solid Waste Generation</h3>
+        
+        <label for="reusability-total">Non-reusability (EN388 abrasion level + EN388 tear level)</label>
+        <select id="reusability-total" >
+            <option value=""></option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        
         <label for="biodegradable-total">Non-biodegradable (%)</label>
         <input type="number" id="biodegradable-total" min="0" max="100" />
         
@@ -53,11 +64,22 @@
         <label for="recycle-regular">Non Recycled Content (%)</label>
         <input type="number" id="recycle-regular" min="0" max="100" />
 
-        <h3>Solid Waste Management Impact</h3>
-        <h4>positive impact</h4>
-        <label for="reusability-regular">Reusability (%)</label>
-        <input type="number" id="reusability-regular" min="0" max="100" />
-        <h4>Negative impact</h4>
+        <h3>Solid Waste Generation</h3>
+        
+        <label for="reusability-regular">Non-reusability (EN388 abrasion level + EN388 tear level)</label>
+        <select id="reusability-regular">
+            <option value=""></option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+        </select>
+        
         <label for="biodegradable-regular">Non-biodegradable (%)</label>
         <input type="number" id="biodegradable-regular" min="0" max="100" />
        

@@ -42,7 +42,7 @@ h1 {
     color: #1d6521; /* Dark green */
 }
 
-.input-container input[type="number"] {
+.input-container select,input[type="number"] {
     width: calc(100% - 12px);
     padding: 6px;
     margin-bottom: 10px;

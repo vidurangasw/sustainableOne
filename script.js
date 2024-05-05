@@ -49,10 +49,9 @@ function updateTotalChart() {
       bioBasedTotal,
       recycleTotal,
       biodegradableTotal,
-      reusabilityTotal,
+      100 - (reusabilityTotal * 12.5),
       recycleContentTotal,
     ];
-  
     
   
   // Call updateComparisonTable function with the correct form data
@@ -89,7 +88,7 @@ function updateRegularChart() {
     bioBasedRegular,
     recycleRegular,
     biodegradableRegular,
-    reusabilityRegular,
+    100 - (reusabilityRegular * 12.5) ,
     recycleContentRegular,
   ];
 
@@ -251,12 +250,12 @@ function updateChart(totalForm, regularSample) {
         "Fossil-based content (Input materials)",
         "Non Recycled Content-(Input material)",
         "Non-biodegradable (%) (Product end-of-life)",
-        "Reusability (%) (Product end-of-life)",
+        "Non-reusability (%) (Product end-of-life)",
         "Non- recyclable (%) (Product end-of-life)",
       ],
       datasets: [
         {
-          label: "Total Form",
+          label: "TotalForm",
           backgroundColor: "rgba(75, 192, 192, 0.2)",
           borderColor: "rgba(75, 192, 192, 1)",
           data: totalFormData,
