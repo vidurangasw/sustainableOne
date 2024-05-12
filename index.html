@@ -25,23 +25,18 @@
         <h3>Sustainable Material Consumption (Input materials)</h3>
         <label for="bio-based-total"> Fossil-based content (%)</label>
         <input type="number" id="bio-based-total" min="0" max="100" />
-        <label for="recycle-total">Non Recycled Content (%)</label>
+        <label for="recycle-total">Non Recycled Content-Packaging Materials (%)</label>
         <input type="number" id="recycle-total" min="0" max="100" />
 
         <h3>Solid Waste Generation (Product end-of-life)</h3>
         
-        <label for="reusability-total">Non-reusability (EN388 abrasion level + EN388 tear level)</label>
+        <label for="reusability-total">Non-reusability (EN388 abrasion level, EN388 tear level)</label>
         <select id="reusability-total" >
-            <option value=""></option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
+            <option value="84.73"></option>
+            <option value="56.22">3, 2</option>
+            <option value="75.00">4, 2</option>
+            <option value="91.20">4, 3</option>
+           
         </select>
         
         <label for="biodegradable-total">Non-biodegradable (%)</label>
@@ -61,23 +56,18 @@
         <h3>Sustainable Material Consumption (Input materials)</h3>
         <label for="bio-based-regular"> Fossil-based content (%)</label>
         <input type="number" id="bio-based-regular" min="0" max="100" />
-        <label for="recycle-regular">Non Recycled Content (%)</label>
+        <label for="recycle-regular">Non Recycled Content-Packaging Materials (%)</label>
         <input type="number" id="recycle-regular" min="0" max="100" />
 
         <h3>Solid Waste Generation (Product end-of-life)</h3>
         
-        <label for="reusability-regular">Non-reusability (EN388 abrasion level + EN388 tear level)</label>
+        <label for="reusability-regular">Non-reusability (EN388 abrasion level, EN388 tear level)</label>
         <select id="reusability-regular">
-            <option value=""></option>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
+            <option value="56.25"></option>
+            <option value="56.22">3, 2</option>
+            <option value="75.00">4, 2</option>
+            <option value="91.20">4, 3</option>
+           
         </select>
         
         <label for="biodegradable-regular">Non-biodegradable (%)</label>
@@ -135,8 +125,8 @@
       window.onload = function () {
         // Call the functions when the window is loaded
         // This will initialize the chart
-        let totalFormData = [64.1, 0, 63.9, 25.0, 43.3];
-        let regularSampleData = [100.0, 100.0, 100, 25.0, 100.0];
+        let totalFormData = [64.1, 0, 63.9, 100-84.73, 43.3];
+        let regularSampleData = [100.0, 100.0, 100, 100-56.25, 100.0];
         updateChart(totalFormData, regularSampleData);
         //updateComparisonTable(totalFormData, regularSampleData)
       };

@@ -11,8 +11,8 @@ const ctx = document.getElementById("radar-chart").getContext("2d");
 
 // Function to update chart with new data for Total Form
 // Function to update chart with new data for Total Form
-let totalFormData = [64.1, 0, 63.9, 25.0, 43.3];
-let regularSampleData = [100.0, 100.0, 100, 25.0, 100.0];
+let totalFormData = [64.1, 0, 63.9, 100-84.73, 43.3];
+let regularSampleData = [100.0, 100.0, 100, 100-56.25, 100.0];
 
 const getInputValueOrDefault = (elementId, defaultVal) => {
   const inputValue = parseFloat(document.getElementById(elementId).value);
@@ -49,7 +49,7 @@ function updateTotalChart() {
       bioBasedTotal,
       recycleTotal,
       biodegradableTotal,
-      100 - (reusabilityTotal * 12.5),
+      100 - (reusabilityTotal),
       recycleContentTotal,
     ];
     
@@ -88,7 +88,7 @@ function updateRegularChart() {
     bioBasedRegular,
     recycleRegular,
     biodegradableRegular,
-    100 - (reusabilityRegular * 12.5) ,
+    100 - (reusabilityRegular) ,
     recycleContentRegular,
   ];
 
@@ -248,7 +248,7 @@ function updateChart(totalForm, regularSample) {
     const data = {
       labels: [
         "Fossil-based content (Input materials)",
-        "Non Recycled Content-(Input material)",
+        "Non Recycled Content-Packaging Materials(Input material)",
         "Non-biodegradable (%) (Product end-of-life)",
         "Non-reusability (%) (Product end-of-life)",
         "Non- recyclable (%) (Product end-of-life)",
