@@ -228,6 +228,9 @@ function updateChart(totalForm, regularSample) {
     regularSample[3],
     regularSample[4],
   ];
+
+  const radarCanvas = document.getElementById('radar-chart');
+  radarCanvas.style.fontSize = '40px'; 
   // const chart1Data1 = [bioBasedTotal+recycleTotal,bioBasedRegular+recycleRegular];
   // const chart1Data2 = [bioBasedRegular+recycleRegular];
   // const chart2Data1 = [biodegradableTotal,reusabilityTotal,recycleContentTotal];
@@ -247,11 +250,11 @@ function updateChart(totalForm, regularSample) {
   } else {
     const data = {
       labels: [
-        "Fossil-based content (Input materials)",
-        "Non Recycled Content-Packaging Materials(Input material)",
-        "Non-biodegradable (%) (Product end-of-life)",
-        "Non-reusability (%) (Product end-of-life)",
-        "Non- recyclable (%) (Product end-of-life)",
+        ["Fossil-based content", "(Input materials)"],
+        ["Non Recycled Content", "Packaging Materials", "(Input material)"],
+        ["Non-biodegradable (%)", "(Product end-of-life)"],
+        ["Non-reusability (%)", "(Product end-of-life)"],
+        ["Non-recyclable (%)", "(Product end-of-life)"],
       ],
       datasets: [
         {
@@ -269,12 +272,27 @@ function updateChart(totalForm, regularSample) {
       ],
     };
 
-    const options = {
+    var options = {
       scale: {
-        ticks: { beginAtZero: true },
+        ticks: {
+          beginAtZero: true,
+          fontSize: 16, // Adjust font size here
+          fontStyle: 'bold', // Make labels bold
+        },
         angleLines: { display: false },
         gridLines: { circular: true },
       },
+      options: {
+        scales: {
+          r: {
+            pointLabels: {
+              font: {
+                size: 20
+              }
+            }
+          }
+        }
+      }
     };
 
     radarChart = new Chart(ctx, {
