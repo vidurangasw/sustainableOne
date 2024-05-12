@@ -272,7 +272,7 @@ function updateChart(totalForm, regularSample) {
       ],
     };
 
-    var options = {
+    const options = {
       scale: {
         ticks: {
           beginAtZero: true,
@@ -282,17 +282,6 @@ function updateChart(totalForm, regularSample) {
         angleLines: { display: false },
         gridLines: { circular: true },
       },
-      options: {
-        scales: {
-          r: {
-            pointLabels: {
-              font: {
-                size: 20
-              }
-            }
-          }
-        }
-      }
     };
 
     radarChart = new Chart(ctx, {
